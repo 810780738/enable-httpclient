@@ -53,7 +53,7 @@ public class HttpClientDoPost implements HttpCientPost {
             throw new HttpClientException("json not be null");
         }
         try {
-            BaseHttp.PostBuilder post = new BaseHttp().postcustomjson(request_suffixUri);
+            BaseHttp.PostBuilder post = new BaseHttp().postcustomjson(request_suffixUri,clientConfigProperties);
             post.setEntity(new StringEntity(json, ContentType.APPLICATION_JSON));
             CloseableHttpResponse response = this.client.execute(post);
             HttpEntity entity = response.getEntity();
@@ -76,7 +76,7 @@ public class HttpClientDoPost implements HttpCientPost {
         try {
             String requestJson = JSON.toJavaObject((JSON) json, String.class);
 //            String requestJson = JSONUtils.toString(json);
-            BaseHttp.PostBuilder post = new BaseHttp().postcustomjson(request_suffixUri);
+            BaseHttp.PostBuilder post = new BaseHttp().postcustomjson(request_suffixUri,clientConfigProperties);
             post.setEntity(new StringEntity(requestJson, ContentType.APPLICATION_JSON));
             CloseableHttpResponse response = this.client.execute(post);
             HttpEntity entity = response.getEntity();
