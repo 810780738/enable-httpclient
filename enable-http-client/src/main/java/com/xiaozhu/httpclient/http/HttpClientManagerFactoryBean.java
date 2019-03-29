@@ -1,6 +1,7 @@
 package com.xiaozhu.httpclient.http;
 
-import com.xiaozhu.httpclient.http.config.HttpClientConfigProperties;
+import com.xiaozhu.httpclient.configure.HttpClientConfigProperties;
+import com.xiaozhu.httpclient.http.config.ProxyRoutePlanner;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.DefaultProxyRoutePlanner;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Service;
 
 
@@ -20,6 +22,7 @@ import org.springframework.stereotype.Service;
  * @return: 
  **/
 @Service("httpClientManagerFactoryBean")
+@ConditionalOnMissingBean
 public class HttpClientManagerFactoryBean implements FactoryBean<CloseableHttpClient>, InitializingBean, DisposableBean {
 
     private CloseableHttpClient client;
@@ -30,14 +33,14 @@ public class HttpClientManagerFactoryBean implements FactoryBean<CloseableHttpCl
     @Autowired
     private org.apache.http.conn.ConnectionKeepAliveStrategy keepAliveStrategy;
 
-    @Autowired
-    private org.apache.http.client.HttpRequestRetryHandler requestRetryHandler;
+//    @Autowired
+//    private org.apache.http.client.HttpRequestRetryHandler requestRetryHandler;
 
     @Autowired
     private PoolingHttpClientConnectionManager clientConnetcionManager;
 
-    @Autowired
-    private DefaultProxyRoutePlanner routePlanner;
+//    @Autowired
+//    private ProxyRoutePlanner routePlanner;
 
     @Autowired
     private org.apache.http.client.config.RequestConfig requestConfig;
@@ -73,7 +76,7 @@ public class HttpClientManagerFactoryBean implements FactoryBean<CloseableHttpCl
         this.client = HttpClients.custom()
                 .setConnectionManager(this.clientConnetcionManager)
                 .setKeepAliveStrategy(this.keepAliveStrategy)
-                .setRoutePlanner(this.clientConfigProperties.isEnableProxy()? this.routePlanner : null)
+//                .setRoutePlanner(this.clientConfigProperties.isEnableProxy()? this.routePlanner : null)
                 .setDefaultRequestConfig(this.requestConfig)
                 .build();
     }

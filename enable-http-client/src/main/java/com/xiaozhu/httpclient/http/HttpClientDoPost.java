@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.xiaozhu.httpclient.http.clientinterface.HttpCientPost;
 import com.xiaozhu.httpclient.exception.HttpClientException;
-import com.xiaozhu.httpclient.http.config.HttpClientConfigProperties;
+import com.xiaozhu.httpclient.configure.HttpClientConfigProperties;
 import com.xiaozhu.httpclient.util.StringUtil;
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
@@ -15,6 +15,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -29,6 +30,7 @@ import java.net.URISyntaxException;
  * @Create: 2019-01-25 12:59
  **/
 @Service
+@ConditionalOnMissingBean
 public class HttpClientDoPost implements HttpCientPost {
 
     @Resource(name = "httpClientManagerFactoryBean")

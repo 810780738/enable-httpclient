@@ -1,4 +1,4 @@
-package com.xiaozhu.httpclient.http.connectionpool;
+package com.xiaozhu.httpclient.http.config.connectionpool;
 
 
 import com.xiaozhu.httpclient.configure.HttpClientConfigProperties;

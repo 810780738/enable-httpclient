@@ -1,5 +1,7 @@
 package com.xiaozhu.httpclient.http.config;
 
+import com.xiaozhu.httpclient.configure.HttpClientConfigProperties;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,13 +14,15 @@ import org.springframework.context.annotation.Configuration;
  * @return:
  **/
 @Configuration
+@Log
 public class RequestConfig {
 
     @Autowired
     HttpClientConfigProperties clientConfigProperties;
 
-    @Bean("bsoftRequestConfig")
+    @Bean("xzRequestConfig")
     public org.apache.http.client.config.RequestConfig requestConfig(){
+        log.info("http client xzRequestConfigBean注册成功");
         return org.apache.http.client.config.RequestConfig.custom()
                 .setConnectTimeout(this.clientConfigProperties.getConnectionTimeOut())
                 .setConnectionRequestTimeout(this.clientConfigProperties.getConnectionRequestTimeOut())

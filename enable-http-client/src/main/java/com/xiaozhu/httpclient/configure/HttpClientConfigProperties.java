@@ -1,12 +1,9 @@
-package com.xiaozhu.httpclient.http.config;
+package com.xiaozhu.httpclient.configure;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
 /**
  * @Author: zhusm@bsoft.com.cn
@@ -17,9 +14,8 @@ import org.springframework.context.annotation.PropertySource;
  **/
 @Data
 @ToString
-@Configuration
-@PropertySource("classpath:httpclient.properties")
-@ConfigurationProperties(prefix = "httpclient.config")
+@Component
+@ConfigurationProperties(prefix = "httpclient.config",ignoreUnknownFields = false)
 public class HttpClientConfigProperties {
 
     private int keepAliveSecond = 60;

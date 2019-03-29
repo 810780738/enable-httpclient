@@ -1,8 +1,8 @@
 package com.xiaozhu.httpclient.http;
 
-import com.xiaozhu.httpclient.context.ApplicationContextProvider;
-import com.xiaozhu.httpclient.http.config.HttpClientConfigProperties;
+import com.xiaozhu.httpclient.configure.HttpClientConfigProperties;
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -20,7 +20,9 @@ public class BaseHttp {
     public static final String REQUEST_GET = "GET";
 
 
-    private HttpClientConfigProperties clientConfigProperties = ApplicationContextProvider.getBean(HttpClientConfigProperties.class);
+//    private HttpClientConfigProperties clientConfigProperties = ApplicationContextProvider.getBean(HttpClientConfigProperties.class);
+    @Autowired
+    private HttpClientConfigProperties clientConfigProperties;
 
     public PostBuilder postcustom() throws URISyntaxException {
         return new PostBuilder();

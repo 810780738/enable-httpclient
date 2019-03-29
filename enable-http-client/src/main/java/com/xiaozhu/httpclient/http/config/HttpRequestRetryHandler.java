@@ -1,7 +1,8 @@
-package com.xiaozhu.httpclient.http;
+package com.xiaozhu.httpclient.http.config;
 
 
 import com.xiaozhu.httpclient.configure.HttpClientConfigProperties;
+import lombok.extern.java.Log;
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpRequest;
 import org.apache.http.NoHttpResponseException;
@@ -25,6 +26,7 @@ import java.net.UnknownHostException;
  * @return:
  **/
 @Configuration
+@Log
 public class HttpRequestRetryHandler {
 
     @Autowired
@@ -33,6 +35,7 @@ public class HttpRequestRetryHandler {
     @Bean
     public org.apache.http.client.HttpRequestRetryHandler httpRequestRetryHandelr(){
         final int retryFrequency = this.clientConfigProperties.getRetryFrequency();
+        log.info("http client httpRequestRetryHandelrBean注册成功");
         return new org.apache.http.client.HttpRequestRetryHandler() {
             @Override
             public boolean retryRequest(IOException exception, int executionCount, HttpContext httpContext) {
