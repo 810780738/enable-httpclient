@@ -1,7 +1,7 @@
 package com.xiaozhu.httpclient.http;
 
 
-import com.xiaozhu.httpclient.http.config.HttpClientConfigProperties;
+import com.xiaozhu.httpclient.configure.HttpClientConfigProperties;
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpRequest;
 import org.apache.http.NoHttpResponseException;

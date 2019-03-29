@@ -1,7 +1,7 @@
 package com.xiaozhu.httpclient.http.connectionpool;
 
 
-import com.xiaozhu.httpclient.http.config.HttpClientConfigProperties;
+import com.xiaozhu.httpclient.configure.HttpClientConfigProperties;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,6 @@
 package com.xiaozhu.httpclient.http.connectionpool;
 
-import com.xiaozhu.httpclient.http.config.HttpClientConfigProperties;
+import com.xiaozhu.httpclient.configure.HttpClientConfigProperties;
 import org.apache.http.HeaderElement;
 import org.apache.http.HttpResponse;
 import org.apache.http.message.BasicHeaderElementIterator;
