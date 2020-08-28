@@ -1,6 +1,7 @@
-httpclient:
-	config:
-	#连接超时时间设置
+### EnableHttpClient
+    httpclient:
+	    config:
+	        #连接超时时间设置
 		keepAliveSecond: 30
 		#重试次数
 		retryFrequency: 3
